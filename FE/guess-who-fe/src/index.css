@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #242424;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.chatFrom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid red;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.chatFrom > input {
+  width: 95%;
+}
+.cardChatWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid red;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+
+  /* height: 100vh; */
+}
+.cardChatWrapper > * {
+  border-radius: 10px;
+}
+.cardChatWrapper > div > div {
+  border-radius: 10px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.test {
+  background-color: red !important;
+}
+
+.videoCallBtnsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.videoHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.videoHolder > div > video {
+  background-color: rgb(35, 35, 54);
+  border-radius: 10px;
+}
+.videoHolder > div > p {
+  color: white;
+}
+.liveChatWrapper {
+  width: 50%;
+  height: 50%;
+  background-color: #4e4e4e;
+}
+.personasWrapper {
+  background-color: #8d8d8d;
+  /* width: 50%;
+  height: 50%; */
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.person {
+  background-color: white;
+  width: 10%;
+  cursor: pointer;
+}
+
+.videoChatWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.videosHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapperLeft {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  width: fit-content !important;
+}
+
+.chatScroll {
+  height: 350px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+
+  word-wrap: break-word; /* wrap long words */
+  overflow-wrap: break-word; /* newer spec, good support */
+  white-space: normal;
+  padding: 0.5rem;
+}
+.chatScroll > span {
+  opacity: 0.5;
+}

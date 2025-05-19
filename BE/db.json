@@ -1,0 +1,140 @@
+{
+  "personas": [
+    {
+      "id": "1",
+      "name": "Brimstone",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Brimstone_icon.webp"
+    },
+    {
+      "id": "2",
+      "name": "Viper",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Viper_icon.webp"
+    },
+    {
+      "id": "3",
+      "name": "Omen",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Omen_icon.webp"
+    },
+    {
+      "id": "4",
+      "name": "Killjoy",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Killjoy_icon.webp"
+    },
+    {
+      "id": "5",
+      "name": "Cypher",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Cypher_icon.webp"
+    },
+    {
+      "id": "6",
+      "name": "Sova",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Sova_icon.webp"
+    },
+    {
+      "id": "7",
+      "name": "Sage",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Sage_icon.webp"
+    },
+    {
+      "id": "8",
+      "name": "Phoenix",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Phoenix_icon.webp"
+    },
+    {
+      "id": "9",
+      "name": "Jett",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Jett_icon.webp"
+    },
+    {
+      "id": "10",
+      "name": "Reyna",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Reyna_icon.webp"
+    },
+    {
+      "id": "11",
+      "name": "Raze",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Raze_icon.webp"
+    },
+    {
+      "id": "12",
+      "name": "Breach",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Breach_icon.webp"
+    },
+    {
+      "id": "13",
+      "name": "Skye",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Skye_icon.webp"
+    },
+    {
+      "id": "14",
+      "name": "Yoru",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Yoru_icon.webp"
+    },
+    {
+      "id": "15",
+      "name": "Astra",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Astra_icon.webp"
+    },
+    {
+      "id": "16",
+      "name": "KAY/O",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/KAYO_icon.webp"
+    },
+    {
+      "id": "17",
+      "name": "Chamber",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Chamber_icon.webp"
+    },
+    {
+      "id": "18",
+      "name": "Neon",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Neon_icon.webp"
+    },
+    {
+      "id": "19",
+      "name": "Fade",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Fade_icon.webp"
+    },
+    {
+      "id": "20",
+      "name": "Harbor",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Harbor_icon.webp"
+    },
+    {
+      "id": "21",
+      "name": "Gekko",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Gekko_icon.webp"
+    },
+    {
+      "id": "22",
+      "name": "Deadlock",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Deadlock_icon.webp"
+    },
+    {
+      "id": "23",
+      "name": "Iso",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Iso_icon.webp"
+    },
+    {
+      "id": "24",
+      "name": "Clove",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Clove_icon.webp"
+    },
+    {
+      "id": "25",
+      "name": "Vyse",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Vyse_icon.webp"
+    },
+    {
+      "id": "26",
+      "name": "Tejo",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Tejo_icon.webp"
+    },
+    {
+      "id": "27",
+      "name": "Waylay",
+      "pfp": "https://tome888.github.io/val_pfp_agents/val_agent_pfp/Waylay_icon.webp"
+    }
+  ],
+  "games": []
+}
