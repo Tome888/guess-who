@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import SinglePerson from "./SinglePerson";
+import SingleCard from "./SingleCard";
+import Spiner from "./Spiner";
 
 interface PersonasProps {
   arrPersonas: any[];
@@ -17,11 +19,11 @@ function CardPersonas({
   fullData,
 }: PersonasProps) {
   const [localPersonas, setLocalPersonas] = useState<any[]>([]);
-  const filterPersons = (perId: string) => {
-    const filtered = arrPersonas.filter((person) => person.id !== perId);
+  // const filterPersons = (perId: string) => {
+  //   const filtered = arrPersonas.filter((person) => person.id !== perId);
 
-    changePersonas(filtered);
-  };
+  //   changePersonas(filtered);
+  // };
 
   useEffect(() => {
     console.log(turnActivate());
@@ -113,9 +115,32 @@ function CardPersonas({
     // </>
 
     <div className="wrapperLeft">
+      <div className="personasWrapper">
+        {arrPersonas &&
+          arrPersonas.map((person) => {
+            return (
+              <div
+                className={`person card ${
+                  styleFunc(localPersonas, person.id) ? "" : "test"
+                }`}
+                onClick={() => {
+                  turnActivate()
+                    ? changeLocal(person.id)
+                    : alert("Not Your Turn");
+                }}
+                key={person.id}
+              >
+                <SingleCard picture={person.pfp} nameAgent={person.name} />
+              </div>
+            );
+          })}
+        {!arrPersonas && <Spiner />}
+      </div>
       <>
         {turnActivate() && (
           <button
+            title="Finish your turn"
+            className=" doneBtn"
             onClick={() =>
               turnActivate() ? doneFunction() : alert("Not Your turn Nigga")
             }
@@ -124,28 +149,6 @@ function CardPersonas({
           </button>
         )}
       </>
-      <div className="personasWrapper">
-        {arrPersonas &&
-          arrPersonas.map((person) => {
-            return (
-              <div
-                key={person.id}
-                className={`person ${
-                  styleFunc(localPersonas, person.id) ? "" : "test"
-                }`}
-                onClick={() => {
-                  turnActivate()
-                    ? // ? filterPersons(person.id)
-                      changeLocal(person.id)
-                    : alert("Not Your turn Nigga");
-                }}
-              >
-                <img src={person.pfp} />
-                <h3>{person.name}</h3>
-              </div>
-            );
-          })}
-      </div>
     </div>
 
     // <>

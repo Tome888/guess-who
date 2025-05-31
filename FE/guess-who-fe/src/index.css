@@ -1,12 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap");
+
 * {
   box-sizing: border-box;
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "JetBrains Mono", monospace;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* overflow: hidden; */
 }
 
 body {
-  margin: 0;
-  background-color: #242424;
+  background: linear-gradient(-45deg, #242424, #3a3a3a, #5a5f63, #767b80);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  color: white;
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 h1,
 h2,
 h3,
@@ -25,9 +50,10 @@ img {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-bottom: 1rem;
   padding: 1rem;
+  width: 100%;
 }
 .chatFrom > input {
   width: 95%;
@@ -40,6 +66,8 @@ img {
   width: 100%;
   gap: 1rem;
   padding: 1rem;
+  height: 80vh;
+  position: relative;
 
   /* height: 100vh; */
 }
@@ -50,6 +78,14 @@ img {
   border-radius: 10px;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 2rem;
+}
 nav {
   display: flex;
   width: 100%;
@@ -57,9 +93,9 @@ nav {
   align-items: center;
   padding: 1rem;
 }
-.test {
+/* .test {
   background-color: red !important;
-}
+} */
 
 .videoCallBtnsWrapper {
   width: 100%;
@@ -67,8 +103,18 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 0.5rem;
+  /* background-color: rgba(0, 128, 0, 0.486); */
 }
-
+.videoCallBtnsWrapper > button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: 1px solid #454ade;
+  background-color: #536dfe91;
+}
 .videoHolder {
   display: flex;
   justify-content: center;
@@ -76,32 +122,76 @@ nav {
   gap: 1rem;
 }
 .videoHolder > div > video {
-  background-color: rgb(35, 35, 54);
+  background-color: rgba(69, 74, 222, 0.521);
+
   border-radius: 10px;
+  width: 300px;
+  object-fit: cover;
+  height: 225px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .videoHolder > div > p {
   color: white;
 }
 .liveChatWrapper {
-  width: 50%;
-  height: 50%;
+  /* width: 25%; */
+  width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 100%;
   background-color: #4e4e4e;
 }
+
 .personasWrapper {
-  background-color: #8d8d8d;
   /* width: 50%;
   height: 50%; */
   display: flex;
 
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  padding: 1rem;
+  /* padding: 1rem; */
+}
+
+.doneBtn {
+  background-color: #afb0b1 !important;
+  width: 100%;
+  /* padding: 1rem; */
+  /* top: 5%; */
+  /* left: 5%;
+  transform: translate(-50%, -50%); */
+
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: #536dfe;
+
+  box-sizing: border-box;
+  color: #536dfe;
+  cursor: pointer;
+  display: inline-flex;
+
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+
+  /* position: relative; */
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 2rem;
 }
 
 .person {
-  background-color: white;
+  /* background-color: white; */
   width: 10%;
   cursor: pointer;
 }
@@ -120,14 +210,26 @@ nav {
 .wrapperLeft {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   gap: 1rem;
   width: fit-content !important;
+  /* background-color: #232336; */
+  background-color: rgba(141, 141, 141, 0.562);
+
+  padding: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  position: relative;
 }
 
 .chatScroll {
-  height: 350px;
+  /* height: 350px; */
+  height: 90%;
+
+  /* width: 100%; */
+  width: 499px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
   overflow-y: scroll;
   scrollbar-width: thin;
 
@@ -135,7 +237,728 @@ nav {
   overflow-wrap: break-word; /* newer spec, good support */
   white-space: normal;
   padding: 0.5rem;
+  line-height: 2;
+}
+
+.chatScroll > p > span {
+  background-color: #454ade;
+  padding: 0.5rem;
+
+  /* padding-left: 0.5rem;
+  padding-right: 0.5rem; */
+
+  border-radius: 20000px;
+}
+
+.chatScroll > p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .chatScroll > span {
   opacity: 0.5;
+}
+
+/* ========custom button======== */
+/* From Uiverse.io by adamgiebl */
+.button {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: #536dfe;
+  /* box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px,
+    rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset; */
+  box-sizing: border-box;
+  color: #536dfe;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 20px;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px,
+    rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px,
+    rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #536dfe33 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+/* ========custom button======== */
+
+/* ==========SLIDE CARD========== */
+.flip-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toggle-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #1d4ed8;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  /* border-radius: 8px;
+  border-width: 2px;
+  border-color: #536dfe; */
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  background-color: #979797;
+  border: 1px solid #536dfe;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.flip-card-front > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flip-card-back > form > input {
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 2px solid #536dfe;
+  border-radius: 8px;
+}
+.flip-card-front > form > input {
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 2px solid #536dfe;
+  border-radius: 8px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+/* ==========SLIDE CARD========== */
+
+/* ==========TOGGLE INPUT========= */
+/* From Uiverse.io by lenin55 */
+.cl-toggle-switch {
+  position: relative;
+  cursor: pointer;
+  padding-top: 0.25rem;
+}
+.cl-toggle-switch > * {
+  cursor: pointer;
+}
+.cl-switch {
+  position: relative;
+  display: inline-block;
+}
+/* Input */
+.cl-switch > input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: -1;
+  position: absolute;
+  right: 6px;
+  top: -8px;
+  display: block;
+  margin: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(0, 0, 0, 0.38);
+  outline: none;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+}
+/* Track */
+.cl-switch > span::before {
+  content: "";
+  float: right;
+  display: inline-block;
+  margin: 5px 0 5px 10px;
+  border-radius: 7px;
+  width: 36px;
+  height: 14px;
+  background-color: rgb(0, 0, 0, 0.38);
+  vertical-align: top;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+/* Thumb */
+.cl-switch > span::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 16px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s, transform 0.2s;
+}
+/* Checked */
+.cl-switch > input:checked {
+  right: -10px;
+  background-color: #86a1db;
+}
+
+.cl-switch > input:checked + span::before {
+  background-color: #86a1db;
+}
+
+.cl-switch > input:checked + span::after {
+  background-color: #2563eb;
+  transform: translateX(16px);
+}
+/* Hover, Focus */
+.cl-switch:hover > input {
+  opacity: 0.04;
+}
+
+.cl-switch > input:focus {
+  opacity: 0.12;
+}
+
+.cl-switch:hover > input:focus {
+  opacity: 0.16;
+}
+/* Active */
+.cl-switch > input:active {
+  opacity: 1;
+  transform: scale(0);
+  transition: transform 0s, opacity 0s;
+}
+
+.cl-switch > input:active + span::before {
+  background-color: #8f8f8f;
+}
+
+.cl-switch > input:checked:active + span::before {
+  background-color: #86a1db;
+}
+/* Disabled */
+.cl-switch > input:disabled {
+  opacity: 0;
+}
+
+.cl-switch > input:disabled + span::before {
+  background-color: #ddd;
+}
+
+.cl-switch > input:checked:disabled + span::before {
+  background-color: #bfdbda;
+}
+
+.cl-switch > input:checked:disabled + span::after {
+  background-color: #2563eb;
+}
+
+.switchWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+}
+.switchWrapper > h2 {
+  filter: blur(1px);
+  font-weight: 300;
+}
+.activeToggle {
+  transition: 0.5s ease;
+  filter: none !important;
+  color: #415eff !important;
+  font-weight: bold !important;
+}
+/* ==========TOGGLE INPUT========= */
+/* ========SPINER============= */
+.loader {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loader div {
+  position: absolute;
+  border: 4px solid #454ade;
+  border-radius: 50%;
+  animation: loader8435 1s ease-out infinite;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes loader8435 {
+  0% {
+    top: 32px;
+    left: 32px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+  }
+}
+
+/* ========SPINER============= */
+/* ========LEave BTn========= */
+.leaveBtn {
+  background-color: rgba(255, 255, 255, 0.548);
+}
+/* ========LEave BTn========= */
+/* ===========HOVER CARDS=============== */
+.myAgentCard {
+  width: 50% !important;
+  margin-bottom: 2rem;
+}
+.card {
+  width: 10%;
+
+  height: 100px;
+
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  border-radius: 5px;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  /* width: 100%; */
+  transition: transform 0.5s;
+  /* background-color: #181818; */
+  font-size: 1rem;
+  text-shadow: 3px 3px 0 #000;
+  text-transform: uppercase;
+}
+.card:hover .title {
+  transform: translate3d(0%, -15px, 1000px);
+  font-weight: bold;
+}
+.test > div > img {
+  filter: grayscale(100%);
+}
+.test > img {
+  filter: grayscale(100%);
+}
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+/* ===========HOVER CARDS=============== */
+
+.chatinput {
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 2px solid #536dfe;
+  border-radius: 8px;
+
+  color: white;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.chatBtn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 35px;
+  background-color: #979797;
+}
+
+/* ===============CUSTOM DROPDOWN========== */
+.optionsWrapper {
+  position: relative;
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 3rem;
+}
+
+.selectedItem {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: #000000; */
+  background-color: rgba(141, 141, 141, 0.562);
+}
+
+.agentInfo {
+  display: flex;
+  align-items: center;
+}
+
+.agentImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+
+.placeholderText {
+  color: #ffffff;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  /* background: #000000; */
+  background-color: rgba(141, 141, 141, 0.562);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdownOption {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+}
+
+.guessButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #b5b7b9 !important;
+}
+
+.dropdownOption:hover {
+  background-color: rgba(78, 78, 78, 0.562);
+}
+/* ===============CUSTOM DROPDOWN========== */
+
+.parentWinnerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.cool-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  border: 5px solid #454ade;
+}
+
+.cool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.cool-card h2 {
+  color: #111;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.cool-card h2 span {
+  color: #e63946;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.cool-card h3 {
+  margin: 0.5rem 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+.cool-card h3 span {
+  color: #454ade;
+  font-weight: 600;
+}
+
+.cool-card button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #454ade;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.cool-card button:hover {
+  background-color: #3637b0;
+}
+
+.disclaimerDiv {
+  background-color: rgba(255, 255, 255, 0.397);
+  color: #415eff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #3637b0;
+  width: 20%;
+}
+.disclaimerPcDiv {
+  background-color: rgba(255, 255, 255, 0.397);
+  color: #415eff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #3637b0;
+  width: 20%;
+  display: none !important;
+}
+.optionsWrapper > label {
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    display: none;
+  }
+
+  nav {
+    display: none !important;
+  }
+  .videoHolder {
+    display: none !important;
+  }
+  .videoCallBtnsWrapper {
+    display: none !important;
+  }
+  .videoHolder {
+    display: none !important;
+  }
+  .cardChatWrapper {
+    display: none !important;
+  }
+
+  .parentWinnerDiv {
+    display: none !important;
+  }
+  .disclaimerPcDiv {
+    display: flex !important;
+    width: 100%;
+    font-size: 2rem;
+  }
+}
+
+/* @media screen and (min-width: 1366px) {
+ 
+} */
+
+@media screen and (width: 1366px) and (height: 768px) {
+  .liveChatWrapper {
+    width: 300px;
+  }
+  .chatScroll {
+    width: 300px;
+  }
+  .optionsWrapper {
+    width: 300px;
+  }
+  .optionsWrapper {
+    padding: 0;
+  }
+  .placeholderText {
+    font-size: 0.75rem !important;
+  }
+  .personasWrapper {
+    gap: 1rem;
+  }
+}
+@media screen and (width: 2560px) and (height: 1440px) {
+  .doneBtn {
+    padding: 1rem;
+  }
+  .personasWrapper {
+    gap: 5rem;
+  }
+  .chatinput {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  .chatBtn {
+    height: 75px;
+  }
+  .chatScroll > p {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .optionsWrapper {
+    padding-top: 10rem;
+  }
+  .agentImg {
+    width: 63px;
+    height: 63px;
+  }
+  .dropdownOption > span {
+    font-size: 2rem;
+  }
 }

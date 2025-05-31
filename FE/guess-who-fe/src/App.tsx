@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "./Pages/Home";
 import Game from "./Pages/Game";
 import WildCart from "./Pages/WildCart";
+import Winner from "./Pages/Winner";
 
 function App() {
   const [joinGame, setJoinGame] = useState(false);
@@ -21,9 +22,10 @@ function App() {
           element={joinGame ? <h2>TESTING ROUTE</h2> : <WildCart />}
         /> */}
         <Route
-          path="/winner/:idWin"
-          element={joinGame ? <h2>TESTING ROUTE</h2> : <WildCart />}
+          path="/winner/:idWin/:agent/:idUserGuess/:agentToGuess"
+          element={joinGame ? <Winner /> : <WildCart />}
         />
+
         <Route path="*" element={<WildCart />} />
       </Routes>
     </BrowserRouter>

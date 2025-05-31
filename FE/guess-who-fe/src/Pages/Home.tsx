@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../components/CustomButton";
+import Spiner from "../components/Spiner";
+import DisclaimerPC from "../components/DisclaimerPC";
 
 interface HomeProps {
   permit: boolean;
@@ -15,9 +18,16 @@ function Home({ permit, setFunc }: HomeProps) {
   const [roomPassInputJ, setRoomPassJ] = useState("");
   const [usernameJ, setUsernameJ] = useState("");
 
+  const [side, setSide] = useState<"create" | "join">("create");
+
+  const [spin, setSpin] = useState(false);
+
   const navigate = useNavigate();
 
-  console.log(permit);
+  const toggleSide = () => {
+    setSide((prev) => (prev === "create" ? "join" : "create"));
+  };
+  // console.log(permit);
 
   useEffect(() => {
     const dataForGame = localStorage.getItem("joinGame");
@@ -50,6 +60,7 @@ function Home({ permit, setFunc }: HomeProps) {
         return response.json();
       })
       .then((data) => {
+        setSpin(false);
         setFunc(true);
         localStorage.setItem("joinGame", JSON.stringify(data));
         localStorage.setItem("myId", JSON.stringify(data.players[0].id));
@@ -62,7 +73,8 @@ function Home({ permit, setFunc }: HomeProps) {
       .catch((error) => {
         console.error("Error registering user:", error);
         alert("denied");
-      });
+      })
+      .finally(() => setSpin(false));
   };
 
   const joinRoom = (rName: string, rPass: string, user: string) => {
@@ -81,6 +93,7 @@ function Home({ permit, setFunc }: HomeProps) {
     })
       .then((res) => res.json())
       .then((data) => {
+        setSpin(false);
         setFunc(true);
         localStorage.setItem("joinGame", JSON.stringify(data));
         localStorage.setItem("myId", JSON.stringify(data.players[1].id));
@@ -89,86 +102,138 @@ function Home({ permit, setFunc }: HomeProps) {
         navigate("/game-on");
         console.log(data, "JOIN DATA FROM ENDPOINT");
       })
-      .catch((err) => console.error(err, "ERROR FROM JOIN"));
+      .catch((err) => {
+        alert("Room doesn't exist");
+        console.error(err, "CAN'T JOIN ROOM");
+      })
+      .finally(() => setSpin(false));
   };
 
   return (
-    <main>
-      <h1>Hello Home</h1>
-      <form
-        action="submit"
-        onSubmit={(e) => {
-          e.preventDefault();
-          joinRoom(roomNameInputJ, roomPassInputJ, usernameJ);
-          console.log("Join", import.meta.env.VITE_API_URL);
+    <>
+      <DisclaimerPC />
 
-          setRoomNameJ("");
-          setRoomPassJ("");
-          setUsernameJ("");
-        }}
-      >
-        <h3>Join</h3>
-        <input
-          type="text"
-          placeholder="Name Room"
-          onChange={(e) => setRoomNameJ(e.target.value.trim())}
-          value={roomNameInputJ}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Password Room"
-          onChange={(e) => setRoomPassJ(e.target.value.trim())}
-          value={roomPassInputJ}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsernameJ(e.target.value.trim())}
-          value={usernameJ}
-          required
-        />
-        <button type="submit">Join</button>
-      </form>
+      <main>
+        <h1>Guess The Valorant Agent</h1>
+        <div className="switchWrapper">
+          <h2 className={side === "create" ? "activeToggle" : ""}>Create</h2>
+          <div className="cl-toggle-switch">
+            <label className="cl-switch">
+              <input type="checkbox" onClick={toggleSide} />
+              <span></span>
+            </label>
+          </div>
+          <h2 className={side === "create" ? "" : "activeToggle"}>Join</h2>
+        </div>
+        <div className="flip-card-container">
+          <div className="flip-card">
+            <div
+              className={`flip-card-inner ${side === "join" ? "flipped" : ""}`}
+            >
+              <div className="flip-card-front">
+                <form
+                  action="submit"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log("Join", import.meta.env.VITE_API_URL);
 
-      <form
-        action="submit"
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("Join", import.meta.env.VITE_API_URL);
+                    setSpin(true);
+                    setRoomName("");
+                    setRoomPass("");
+                    setUsername("");
+                    createRoomFunc(roomNameInput, roomPassInput, username);
+                  }}
+                >
+                  <h3>Create</h3>
+                  <input
+                    type="text"
+                    placeholder="Name Room"
+                    onChange={(e) => setRoomName(e.target.value.trim())}
+                    value={roomNameInput}
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Password Room"
+                    onChange={(e) => setRoomPass(e.target.value.trim())}
+                    value={roomPassInput}
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value.trim())}
+                    value={username}
+                    required
+                  />
+                  {spin ? (
+                    <Spiner />
+                  ) : (
+                    <button type="submit" className="button" role="button">
+                      Create
+                    </button>
+                  )}
+                </form>
+              </div>
+              <div className="flip-card-back">
+                <form
+                  action="submit"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    joinRoom(roomNameInputJ, roomPassInputJ, usernameJ);
+                    console.log("Join", import.meta.env.VITE_API_URL);
+                    setSpin(true);
+                    setRoomNameJ("");
+                    setRoomPassJ("");
+                    setUsernameJ("");
+                  }}
+                >
+                  <h3>Join</h3>
+                  <input
+                    type="text"
+                    placeholder="Name Room"
+                    onChange={(e) => setRoomNameJ(e.target.value.trim())}
+                    value={roomNameInputJ}
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Password Room"
+                    onChange={(e) => setRoomPassJ(e.target.value.trim())}
+                    value={roomPassInputJ}
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    onChange={(e) => setUsernameJ(e.target.value.trim())}
+                    value={usernameJ}
+                    required
+                  />
 
-          setRoomName("");
-          setRoomPass("");
-          setUsername("");
-          createRoomFunc(roomNameInput, roomPassInput, username);
-        }}
-      >
-        <h3>Create</h3>
-        <input
-          type="text"
-          placeholder="Name Room"
-          onChange={(e) => setRoomName(e.target.value.trim())}
-          value={roomNameInput}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Password Room"
-          onChange={(e) => setRoomPass(e.target.value.trim())}
-          value={roomPassInput}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value.trim())}
-          value={username}
-          required
-        />
-        <button type="submit">Create</button>
-      </form>
-    </main>
+                  {spin ? (
+                    <Spiner />
+                  ) : (
+                    <button type="submit" className="button" role="button">
+                      Join
+                    </button>
+                  )}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="disclaimerDiv">
+          <p>
+            <strong>Disclaimer:</strong>
+            <br />
+            If you're on a network with strict firewall rules (e.g., corporate,
+            school, or mobile networks), the video chat may not work properly
+            due to blocked WebRTC connections.
+          </p>
+        </div>
+      </main>
+    </>
   );
 }
 
